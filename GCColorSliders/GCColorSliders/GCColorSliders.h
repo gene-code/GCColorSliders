@@ -14,11 +14,18 @@ NS_ASSUME_NONNULL_BEGIN
 #define GCSLIDER_VERTICAL 1
 #define GCSLIDER_HORIZONTAL 2
 
+@protocol GCColorSlidersDelegate <NSObject>
+@required
+-(void)GCColorSlidersColorSelected:(UIColor*)selectedColor;
+@end
+
 @interface GCColorSliders : UIView
 
 @property (nonatomic, assign) int sliderType;
+@property (nonatomic, strong) UIColor *themeColor;
+@property (nonatomic, strong) id delegate;
 
--(id)initWithFrame:(CGRect)frame andType:(int)type;
+-(id)initWithFrame:(CGRect)frame andType:(int)type andTheme:(UIColor*)color;
 -(void)adjHSL:(UISlider *)slider;
 -(UIImage *)drawSatSliderImage:(UISlider*)slider withHue:(CGFloat)hue withBright:(CGFloat)bright;
 -(UIImage *)drawBrightSliderImage:(UISlider*)slider withHue:(CGFloat)hue withSat:(CGFloat)sat;

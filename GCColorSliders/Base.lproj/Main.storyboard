@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B0V-0v-541">
-                                <rect key="frame" x="52" y="135" width="274" height="232"/>
+                                <rect key="frame" x="52" y="61" width="274" height="245"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B0V-0v-541" secondAttribute="bottom" constant="300" id="7oI-To-Qzx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B0V-0v-541" secondAttribute="bottom" constant="361" id="7oI-To-Qzx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B0V-0v-541" secondAttribute="trailing" constant="49" id="CNi-Fy-abx"/>
                             <constraint firstItem="B0V-0v-541" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="XHN-54-zhY"/>
-                            <constraint firstItem="B0V-0v-541" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="xxN-ZB-mZp"/>
+                            <constraint firstItem="B0V-0v-541" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="xxN-ZB-mZp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

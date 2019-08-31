@@ -58,6 +58,12 @@
             }
         }
     }
+    
+    
+    if (_delegate) {
+        UIColor *color = [UIColor colorWithHue:h saturation:s brightness:l alpha:1.0];
+        [self.delegate GCColorSlidersColorSelected:color];
+    }
 
 }
 
@@ -218,25 +224,36 @@
 
 -(UIImage*)renderKnobImage {
 
-    
     CGSize size = CGSizeMake(18, 28);
     
     UIGraphicsBeginImageContextWithOptions(size, NO, 0); {
         CGContextRef gc = UIGraphicsGetCurrentContext();
         CGRect rectangle = CGRectMake(4, 0, 10, 28);
-        CGContextSetRGBStrokeColor(gc, 0.2, 0.2, 0.2, 1.0);
-        CGContextSetLineWidth(gc, 3);
+        CGContextSetRGBFillColor(gc, 0.2, 0.2, 0.2, 1.0);
         CGContextFillRect(gc,rectangle);
+        
+        CGRect rectangle2 = CGRectMake(7, 4, 4, 20);
+        
+        CGFloat r,g,b,a;
+        [self.themeColor getRed:&r green:&g blue:&b alpha:&a];
+        
+        CGContextSetRGBFillColor(gc, r, g, b, 1.0);
+        CGContextSetLineWidth(gc, 3);
+        CGContextFillRect(gc,rectangle2);
+        
     }
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
 
--(id)initWithFrame:(CGRect)frame andType:(int)type {
+
+
+-(id)initWithFrame:(CGRect)frame andType:(int)type andTheme:(UIColor*)color {
     if ([super initWithFrame:frame]) {
         
         self.sliderType = type;
+        self.themeColor = color;
         
         CGFloat h = 0;
         CGFloat s = 1;
@@ -252,8 +269,6 @@
              
          }
 
-        
-        
         // ads HSL sliders
         UISlider *hueSlider = [[UISlider alloc] initWithFrame:sliderFrame];
         hueSlider.minimumValue = 0;

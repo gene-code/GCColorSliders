@@ -29,18 +29,30 @@
     
     if (_runOnce) {
         _runOnce = NO;
-        self.gcSliders = [[GCColorSliders alloc] initWithFrame:self.sliderView.frame andType:GCSLIDER_VERTICAL];
-        [self.view addSubview:self.gcSliders];
-        [self.gcSliders setBackgroundColor:[UIColor darkGrayColor]];
-        
-        
-        GCColorSliders *gcSliders2 = [[GCColorSliders alloc] initWithFrame:self.sliderView.frame andType:GCSLIDER_HORIZONTAL];
+        GCColorSliders *gcSliders1 = [[GCColorSliders alloc] initWithFrame:self.sliderView.frame
+                                                                   andType:GCSLIDER_VERTICAL
+                                                                   andTheme:[UIColor orangeColor]];
+        [self.view addSubview:gcSliders1];
+        gcSliders1.delegate = self;
+        [gcSliders1 setBackgroundColor:[UIColor darkGrayColor]];
+
+        GCColorSliders *gcSliders2 = [[GCColorSliders alloc] initWithFrame:self.sliderView.frame
+                                                                   andType:GCSLIDER_HORIZONTAL
+                                                                    andTheme:[UIColor cyanColor]];
         [self.view addSubview:gcSliders2];
+        gcSliders2.delegate = self;
         [gcSliders2 setBackgroundColor:[UIColor darkGrayColor]];
         
-        gcSliders2.center = CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height/2.0 + 200);
+        gcSliders2.center = CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height/2.0 + 150);
     }
     
 }
+
+-(void)GCColorSlidersColorSelected:(UIColor *)selectedColor {
+    
+    self.view.backgroundColor = selectedColor;
+}
+
+
 
 @end

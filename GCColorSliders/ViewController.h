@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "GCColorSliders/GCColorSliders.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <GCColorSlidersDelegate>
 
 
 @property (nonatomic, weak) IBOutlet UIView *sliderView;
-@property (nonatomic, strong) GCColorSliders *gcSliders;
 @property (nonatomic, assign) BOOL runOnce;
 
 @end
