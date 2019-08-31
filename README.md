@@ -1,10 +1,7 @@
 # GCColorSliders
  A flexible multi orientation HSL Color Sliders
 
- # GCToolBar
- A flexible toolbar with optional selection indicator
-
- <img src="sampleh.gif" height=400>&nbsp;&nbsp;&nbsp;&nbsp;<img src="sample.gif" height=400>
+ <img src="sample.gif" height=400>
 
  # Introduction
  GCColorSliders is created because there seems to be no good and flexible Color Sliders written in
@@ -19,7 +16,7 @@
  the constraints accordingly. Connect IBOutlet of this view into your header file.
  3. `#import "GCColorSliders.h"` in your header file.
  4. Implement the `GCColorSliders` delegate.
- 5. In `viewDidLayoutSubviews` of your viewController, add the following code to create the toolbar:
+ 5. In `viewDidLayoutSubviews` of your viewController, add the following code to create the sliders:
  ```obj-c
     if (_runOnce) { // runOnce is to ensure the sliders are created once (see example project)
       _runOnce = NO;
@@ -28,14 +25,15 @@
                                                                  andTheme:[UIColor orangeColor]];
       [self.view addSubview:gcSliders1];
       [gcSliders1 setBackgroundColor:[UIColor darkGrayColor]];
-      gcSliders1.delegate = self;
+      gcSliders1.delegate = self; // important!
     }
  ```
  6. Implement delegate function:
  ```obj-c
-     -(void)GCToolBarButton:(GCToolBar *)toolBar didClickedAtIndex:(NSInteger)index {
+ -(void)GCColorSlidersColorSelected:(UIColor *)selectedColor {
 
-     }
+     // selectedColor is the selected color. duhh...
+ }
  ```
  7. Done!
 
